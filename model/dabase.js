@@ -22,7 +22,8 @@ const roleSchema = new mongoose.Schema({
 
 const categorySchema = new mongoose.Schema({
     name: String,
-    // category: [{ detail: String }],
+    nameURL: String,
+    category: [{ detail: String, detailURL: String }],
 }, {
     collection: 'category'
 })
