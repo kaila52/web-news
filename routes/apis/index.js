@@ -1,13 +1,13 @@
 var express = require('express');
-var router = express.Router();
+var app = express();
 
 var category = require('./category.api');
-var category = require('./post.api');
+var post = require('./post.api');
 
 
 //thể loại
-router.get('/category',category);
+app.use('/category', category);
 //bài viết
-router.get('/post',post);   
+app.use('/post', post);
 
-module.exports = router;
+module.exports = app;
