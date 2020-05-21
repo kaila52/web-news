@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var category = require('./category.api');
-var category = require('./post.api');
+var post = require('./post.api');
 
 
 //thể loại
