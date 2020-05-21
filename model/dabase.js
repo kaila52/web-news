@@ -29,9 +29,11 @@ const categorySchema = new mongoose.Schema({
 })
 
 const newsSchema = new mongoose.Schema({
+    category: String,
     title: String,
     description: String,
     content: String,
+    image: String,
     comment: [{ type: Schema.Types.ObjectId, ref: 'comments' }],
     author: { type: Schema.Types.ObjectId, ref: 'user' },
 }, {

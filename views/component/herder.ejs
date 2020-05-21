@@ -12,34 +12,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
+                    <% category.forEach(function(value){ %>
                     <li class="nav-item dropdown has-submenu hidden-md-down hidden-sm-down hidden-xs-down">
                         <!-- has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down -->
                         <a class="nav-link dropdown-toggle mb-1" href="#" id="dropdown01" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">News</a>
+                            aria-haspopup="true" aria-expanded="false"><%= value.name %></a>
                         <ul class="dropdown-menu megamenu" aria-labelledby="dropdown01">
                             <li>
                                 <div class="tab">
-                                    <a class="dropdown-item" href="/category">Thời sự</a>
-                                    <a class="dropdown-item" href="/category">Góc nhìn</a>
-                                    <a class="dropdown-item" href="/category">Thế giới</a>
+                                    <% value.category.forEach(function(item){ %>
+                                        <a class="dropdown-item" href="/category" id=''><%= item.detail %></a>
+                                    <% }); %>
                                 </div>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown has-submenu hidden-md-down hidden-sm-down hidden-xs-down">
-                        <!-- has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down -->
-                        <a class="nav-link dropdown-toggle mb-1" href="#" id="dropdown01" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Entertainment</a>
-                        <ul class="dropdown-menu megamenu" aria-labelledby="dropdown01">
-                            <li>
-                                <div class="tab">
-                                    <a class="dropdown-item" href="/category">Showbiz</a>
-                                    <a class="dropdown-item" href="/category">Videos</a>
-                                    <a class="dropdown-item" href="/category">Movies</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
+                    <% }); %>
                 </ul>
 
                 <ul class="navbar-nav mr-2">
