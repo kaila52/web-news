@@ -4,7 +4,7 @@ var axios = require('axios')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  axios.get('http://localhost:3000/api/category').then(function (response) {
+  axios.get('https://ptht.herokuapp.com/api/category').then(function (response) {
     res.render('single', { title: 'Trang Chủ', category: response.data });
   })
 });
