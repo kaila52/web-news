@@ -55,7 +55,7 @@
               <a class="nav-link dropdown-toggle mr-auto bd-highlight" href="#" id="<%= value._id %>" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= value.name %></a>
               <button type="button" class="btn btn-primary bd-highlight">Sửa</button>
-              <button type="button" class="btn btn-danger bd-highlight">Xóa</button>
+              <button type="button" class="btn btn-danger bd-highlight deletecate">Xóa</button>
               <div class="dropdown-menu border border-secondary" aria-labelledby="navbarDropdown" style="width: 101%;">
                 <% value.category.forEach(function(item){ %>
                 <div class="d-block d-flex" id="<%= item._id %>">
@@ -86,6 +86,24 @@
   <script src="/admins/assets/demo/chart-bar-demo.js"></script>
   <script src="/admins/assets/demo/datatables-demo.js"></script>
   <script>
+
+    $(".deletecate").click(function () {
+      var id = $(this).parent().find("a").attr("id");
+      var body = { id }
+      console.log(body);
+      $.ajax({
+        url: "/api/category",
+        type: "DELETE",
+        data: body,
+        dataType: "json"
+      }).then(data => {
+        if (data.status === 1) {
+          alert('thành công')
+          return location.reload();
+        }
+      })
+
+    });
     $("#category").click(function () {
       var name = $("#category").parent().parent().find("input").val();
       var body = { name }

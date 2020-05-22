@@ -51,7 +51,7 @@ router.put('/', function (req, res, next) {
 router.delete('/', function (req, res, next) {
   const id = req.body.id;
   sevice.deletee(id)
-    .then(res.send('Success'))
+    .then(res.json({ status: 1 }))
 });
 /*---------------------- detail ----------------------*/
 //thêm chi tiết danh mục
