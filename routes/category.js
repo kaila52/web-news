@@ -3,11 +3,10 @@ var router = express.Router();
 var axios = require('axios')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('category');
-  axios.get('https://ptht.herokuapp.com/category').then(function (response) {
-    res.render('single', { title: 'Trang Chủ', category: response.data });
-  })
+router.get('/',async function(req, res, next) {
+  const response = await axios.get('https://ptht.herokuapp.com/api/category')
+  res.render('category',{ title: 'Category', category: response.data });
+
 });
 
 module.exports = router;
